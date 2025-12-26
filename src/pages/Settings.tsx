@@ -257,6 +257,29 @@ function Settings() {
                                     <option value="system">{t('settings.general.theme_system')}</option>
                                 </select>
                             </div>
+
+                            {/* 开机自动启动 */}
+                            <div>
+                                <label className="block text-sm font-medium text-gray-900 dark:text-base-content mb-2">{t('settings.general.auto_launch')}</label>
+                                <select
+                                    className="w-full px-4 py-4 border border-gray-200 dark:border-base-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-base-content bg-gray-50 dark:bg-base-200"
+                                    value={formData.auto_launch ? 'enabled' : 'disabled'}
+                                    onChange={async (e) => {
+                                        const enabled = e.target.value === 'enabled';
+                                        try {
+                                            await invoke('toggle_auto_launch', { enable: enabled });
+                                            setFormData({ ...formData, auto_launch: enabled });
+                                            showToast(enabled ? '已启用开机自动启动' : '已禁用开机自动启动', 'success');
+                                        } catch (error) {
+                                            showToast(`${t('common.error')}: ${error}`, 'error');
+                                        }
+                                    }}
+                                >
+                                    <option value="disabled">{t('settings.general.auto_launch_disabled')}</option>
+                                    <option value="enabled">{t('settings.general.auto_launch_enabled')}</option>
+                                </select>
+                                <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">{t('settings.general.auto_launch_desc')}</p>
+                            </div>
                         </div>
                     )}
 
@@ -429,7 +452,7 @@ function Settings() {
                                     <p className="text-sm text-gray-600 dark:text-gray-400">{t('settings.advanced.logs_desc')}</p>
                                 </div>
                                 <div className="badge badge-primary badge-outline gap-2 font-mono">
-                                    v3.2.6
+                                    v3.2.7
                                 </div>
                                 <div className="flex items-center gap-4">
                                     <button
@@ -531,7 +554,7 @@ function Settings() {
                                         <h3 className="text-3xl font-black text-gray-900 dark:text-base-content tracking-tight mb-2">Antigravity Tools</h3>
                                         <div className="flex items-center justify-center gap-2 text-sm">
                                             <span className="px-2.5 py-0.5 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-medium border border-blue-200 dark:border-blue-800">
-                                                v3.2.6
+                                                v3.2.7
                                             </span>
                                             <span className="text-gray-400 dark:text-gray-600">•</span>
                                             <span className="text-gray-500 dark:text-gray-400">Professional Account Management</span>

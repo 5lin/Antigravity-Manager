@@ -22,7 +22,9 @@
         "clear": "Clear",
         "prev_page": "Previous",
         "next_page": "Next",
-        "pagination_info": "Showing {{start}} to {{end}} of {{total}} entries"
+        "pagination_info": "Showing {{start}} to {{end}} of {{total}} entries",
+        "per_page": "Per page",
+        "items": "items"
     },
     "nav": {
         "dashboard": "Dashboard",
@@ -172,7 +174,11 @@
             "theme": "Theme",
             "theme_light": "Light",
             "theme_dark": "Dark",
-            "theme_system": "System"
+            "theme_system": "System",
+            "auto_launch": "Launch at Startup",
+            "auto_launch_enabled": "Enabled",
+            "auto_launch_disabled": "Disabled",
+            "auto_launch_desc": "Automatically launch Antigravity Tools when system starts"
         },
         "account": {
             "title": "Account Settings",
@@ -198,6 +204,9 @@
             "antigravity_path_select": "Select Antigravity Executable",
             "antigravity_path_detected": "Detected path updated",
             "detect_btn": "Detect",
+            "accounts_page_size": "Accounts Page Size",
+            "page_size_auto": "Auto Calculate (Recommended)",
+            "page_size_desc": "Set the number of accounts displayed per page. Select 'Auto Calculate' to dynamically adjust based on window size.",
             "logs_title": "Logs Maintenance",
             "logs_desc": "Clear log cache files. Does not affect account data.",
             "clear_logs": "Clear Logs Cache",
